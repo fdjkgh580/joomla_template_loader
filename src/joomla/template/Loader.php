@@ -28,14 +28,18 @@ class Loader
 
     /**
      * 將參數帶入並渲染
+     */
+    /**
+     * 將參數帶入並渲染
+     * @param  string  $viewDir      view 的路徑
      * @param  callable $callback($properties) 可取得內部所有內部的屬性
      */
-    public function render($callback = false): string
+    public function render(string $viewDir, $callback = false): string
     {
         // 提取資源
         $assets = $this->getAssets();
 
-        $result = $this->view("main.php",
+        $result = $this->view($viewDir, "main.php",
         [
             'assets' => $assets,
             'doc' => $this->HtmlDocument
@@ -120,10 +124,10 @@ class Loader
     }
 
     // 取得 view
-    protected function view(string $view, array $param = []): string
+    protected function view(string $dir, string $view, array $param = []): string
     {
-        $loader = new Twig_Loader_Filesystem(__DIR__ . '/views');
-        $twig = new Twig_Environment($loader);
+        $loader = new \Twig_Loader_Filesystem($dir);
+        $twig = new \Twig_Environment($loader);
         return $twig->render($view, $param);
     }
 
