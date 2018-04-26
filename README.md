@@ -147,7 +147,8 @@ echo $loader->render(function ($properties)
     ]
 ]
 ````
-若要全域使用，元件與 task 請指定 global；若網址中沒有 task ，完整的 task 名稱請指定 default。
+- 若要全域使用，元件與完整的 task 名稱請指定 global
+- 若網址中沒有 task ，完整的 task 名稱請指定 default，例如上方的範例
 
 ### site(string $path): string
 自動取得模板的路徑。例如取得 ````$loader->site("css/template.css")```` 將會返回 ````templates/mynewtemplate/css/template.css````。
