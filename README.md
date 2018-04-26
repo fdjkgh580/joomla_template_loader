@@ -31,12 +31,10 @@ $loader->setAssets(
     // 分頁
     'com_todolist' => 
     [
-        // 當 task=form.index
-        'form.index' => 
+        'form.index' => 
         [
             [$loader->site("css/template.css"), "css"],
         ],
-        // 當 task=form.upload
         'form.upload' => 
         [
             [$loader->site("javascript/global.js"), "js"],
@@ -56,13 +54,11 @@ $loader->setAssets(
 ]);
 
 
-echo $loader->render(function ($properties)
+echo $loader->render(__DIR__ . "/views", function ($properties)
 {
     // 可查看內部屬性
     print_r($properties['option']);
-
 });
-
 ````
 
 ### templates/mynewtemplate/views/main.php
@@ -153,12 +149,13 @@ echo $loader->render(function ($properties)
 ### site(string $path): string
 自動取得模板的路徑。例如取得 ````$loader->site("css/template.css")```` 將會返回 ````templates/mynewtemplate/css/template.css````。
 
-### render($callback = false): string
-將參數帶入並渲染位於 views/main.php 的視圖。
+### render(string $viewDir, $callback = false): string
+將資源帶入並渲染位於 views/main.php 的視圖。
 ````php
-echo $loader->render(function ($properties)
+echo $loader->render(__DIR__ . "/views", function ($properties)
 {
     // 可查看內部屬性
     print_r($properties['option']);
+
 });
 ````
