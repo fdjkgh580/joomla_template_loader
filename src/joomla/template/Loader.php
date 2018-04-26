@@ -195,7 +195,7 @@ class Loader
     
 
     // 取得模板底下的 CSS 相對路徑
-    public function site(string $path)
+    public function site(string $path): string
     {
         $fullpath = 'templates' . DIRECTORY_SEPARATOR . $this->HtmlDocument->template . DIRECTORY_SEPARATOR . $path;
         $replace = str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $fullpath);
