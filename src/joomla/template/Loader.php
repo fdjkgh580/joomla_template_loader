@@ -1,5 +1,5 @@
 <?php 
-use \Jsnlib\Joomla\Template;
+namespace \Jsnlib\Joomla\Template;
 
 class Loader
 {
