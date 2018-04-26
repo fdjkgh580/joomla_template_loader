@@ -1,5 +1,5 @@
 <?php 
-namespace \Jsnlib\Joomla\Template;
+namespace Jsnlib\Joomla\Template;
 
 class Loader
 {
@@ -13,7 +13,7 @@ class Loader
     protected $task;
     protected $assets;
 
-    function __construct(Joomla\CMS\Document\HtmlDocument $HtmlDocument)
+    function __construct(\Joomla\CMS\Document\HtmlDocument $HtmlDocument)
     {
         $this->HtmlDocument = $HtmlDocument;
         $this->app          = \JFactory::getApplication();
